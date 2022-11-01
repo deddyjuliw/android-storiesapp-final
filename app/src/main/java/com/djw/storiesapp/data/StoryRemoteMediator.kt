@@ -58,7 +58,7 @@ class StoryRemoteMediator(
                     RemoteKeys(id = it.id, prevKey = prevKey, nextKey = nextKey)
                 }
                 val listStoryItem = responseData.listStory.map {
-                    ListStoryItem(it.id, it.name, it.description, it.photoUrl, it.createdAt, it.lat, it.lon)
+                    ListStoryItem(it.id, it.photoUrl, it.createdAt, it.name, it.description, it.lon, it.lat)
                 }
                 database.remoteKeysDao().insertAll(keys)
                 database.storyDao().insertStory(listStoryItem)
